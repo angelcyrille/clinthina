@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinthina Online Services</title>
+    <link rel="stylesheet" href="{% static 'hello/css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo"><span class="logo-accent"></span> Clinthina</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'faq' %}">FAQ</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="auth-buttons">
+            {% if user.is_authenticated %}
+                <span class="welcome-text">Hello, {{ user.username }}</span>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-outline">Logout</button>
+                </form>
+            {% else %}
+                <button class="btn-login" onclick="openModal('login-modal')">➜ Login</button>
+                <button class="btn-signup" onclick="openModal('signup-modal')">👤 Sign Up</button>
+            {% endif %}
+        </div>
+    </header>
+
+    <div id="login-modal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="close-modal" onclick="closeModal('login-modal')">&times;</button>
+            <h2>Welcome Back</h2>
+            <p>Log in to access your booking dashboard</p>
+            <form method="POST" action="{% url 'login' %}" class="chic-form">
+                {% csrf_token %}
+                <label>Email</label>
+                <input type="email" name="username" placeholder="you@example.com" required>
+                <label>Password</label>
+                <div class="password-wrapper">
+                    <input type="password" name="password" id="login-pass" placeholder="••••••••" required>
+                    <span class="toggle-eye">👁️</span>
+                </div>
+                <a href="#" class="forgot-link">Forgot password?</a>
+                <button type="submit" class="btn-auth-submit">Log In</button>
+            </form>
+            <p class="auth-footer">Don't have an account? <a href="#" onclick="openModal('signup-modal'); closeModal('login-modal');">Sign up</a></p>
+        </div>
+    </div>
+
+    <div id="signup-modal" class="modal-overlay">
+        <div class="modal-card">
+            <button class="close-modal" onclick="closeModal('signup-modal')">&times;</button>
+            <h2>Create Account</h2>
+            <p>Join Clinthina Online Services today</p>
+            <form method="POST" action="{% url 'signup' %}" class="chic-form">
+                {% csrf_token %}
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Username" required>
+                <label>Email</label>
+                <input type="email" name="email" placeholder="you@example.com" required>
+                <label>Password</label>
+                <input type="password" name="password" placeholder="••••••••" required>
+                <button type="submit" class="btn-auth-submit">Sign Up</button>
+            </form>
+            <p class="auth-footer">Already have an account? <a href="#" onclick="openModal('login-modal'); closeModal('signup-modal');">Log in</a></p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) { 
+            document.getElementById(id).style.display = 'flex'; 
+            document.body.style.overflow = 'hidden'; 
+        }
+        function closeModal(id) { 
+            document.getElementById(id).style.display = 'none'; 
+            document.body.style.overflow = 'auto'; 
+        }
+        
+        window.onclick = function(event) {
+            if (event.target.className === 'modal-overlay') {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

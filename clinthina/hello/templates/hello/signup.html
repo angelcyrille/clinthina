@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="page-section">
+    <div class="auth-card">
+        <h2 class="section-title">Create an Account</h2>
+        <p class="auth-subtitle">Join Clinthina Online Services for faster bookings.</p>
+        
+        <form method="POST" class="chic-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-gold w-100">Sign Up</button>
+        </form>
+        
+        <div class="auth-footer">
+            <p>Already have an account? <a href="{% url 'login' %}">Log In</a></p>
+        </div>
+    </div>
+</section>
+{% endblock %}

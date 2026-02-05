@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="hero-container">
+    <div class="hero-left">
+        <h1 class="main-title">Do you need Assistance?</h1>
+        <p class="hero-subtitle">Skip the long lines and complicated processes. We help you secure appointments for NBI clearance, DFA passport, and more.</p>
+        <div class="cta-buttons">
+    <a href="{% url 'services' %}" class="btn-gold">Book Assistance Now</a>
+    <a href="{% url 'faq' %}" class="btn-gold">View FAQ list</a>
+</div>
+    </div>
+   <aside class="features-sidebar">
+        <div class="info-card">
+            <div class="card-icon">📅</div>
+            <h3>Fast Appointment Scheduling</h3>
+            <p>Secure your government service appointments quickly</p>
+        </div>
+
+        <div class="info-card">
+            <div class="card-icon">🕒</div>
+            <h3>Save Time & Effort</h3>
+            <p>Avoid long queues and multiple visits to government offices</p>
+        </div>
+
+        <div class="info-card">
+            <div class="card-icon">✔️</div>
+            <h3>Expert Guidance</h3>
+            <p>Get professional assistance with document requirements</p>
+        </div>
+    </aside>
+</main>
+{% endblock %}

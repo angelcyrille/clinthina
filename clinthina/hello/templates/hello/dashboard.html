@@ -1,0 +1,15 @@
+{% extends 'accounts/base.html' %}
+{% block title %}Dashboard - Django Auth Lab{% endblock %}
+{% block content %}
+<h1>Dashboard</h1>
+<p>This page is protected. Hello, <strong>{{ request.user.username }}</strong>! 🎉</p>
+
+<ul>
+  <li>Username: {{ request.user.username }}</li>
+  <li>Email: {{ request.user.email }}</li>
+  <li>Staff? {{ request.user.is_staff }}</li>
+  <li>Superuser? {{ request.user.is_superuser }}</li>
+</ul>
+
+<p><a href="{% url 'accounts:logout' %}">Logout</a></p>
+{% endblock %}

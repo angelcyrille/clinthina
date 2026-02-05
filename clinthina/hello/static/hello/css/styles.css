@@ -1,0 +1,416 @@
+/* --- Root Variables updated for the Cream & Navy Theme --- */
+body { background-color: #F9F2E6 !important; }
+:root {
+    --bg-cream: #F9F2E6;       /* Light cream background from your pic */
+    --navy-primary: #0a045e;   /* Solid navy for cards and buttons */
+    --gold-accent: #e5d18a;    /* Muted gold for main buttons */
+    --gold-hover: #d4c079;
+    --white: #ffffff;
+    --text-dark: #1a1a1a;      /* Dark text for the light background */
+}
+
+/* --- Global Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-cream); /* Updated to Cream */
+    color: var(--text-dark);          /* Updated to Dark Text */
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 75px;
+    background-color: var(--navy-primary); /* Solid Navy Header */
+    color: var(--white);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    gap: 10px;
+}
+
+/* Fix for the vertical list issue seen in your screenshot */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px; /* Space between Home, FAQ, etc. */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 15px; /* Reduced font size for a more formal look */
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--gold-accent);
+}
+
+/* --- Hero Section --- */
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 80px;
+    min-height: 80vh;
+}
+
+.hero-left {
+    max-width: 45%;
+}
+
+.hero-left p {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+/* --- Buttons --- */
+.btn-gold {
+    background-color: var(--gold-accent); /* #e5d18a */
+    color: var(--navy-primary);          /* #0a045e */
+    padding: 18px 35px;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none; /* In case you used an <a> tag */
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    background-color: var(--gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Feature Sidebar (Solid Navy Cards) --- */
+.features-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 40%;
+}
+
+.info-card {
+    background: var(--navy-primary); /* Updated to Solid Navy */
+    color: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 10px 20px rgba(10, 4, 94, 0.2);
+    transition: transform 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.info-card p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Auth/Login Page Styling --- */
+.auth-overlay {
+    background-color: var(--bg-cream);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-modal {
+    background: white;
+    color: var(--navy-primary);
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.btn-auth-submit {
+    background-color: var(--gold-accent);
+    color: var(--navy-primary);
+    font-weight: 700;
+}
+
+/* --- Modal Overlay (The Dark Background) --- */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 31, 63, 0.85); /* Dark Navy overlay */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- The Pop-up Card --- */
+.modal-card {
+    background: white;
+    width: 90%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 16px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+/* --- Form Elements --- */
+.chic-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px 0;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+}
+
+.chic-form input:focus {
+    border-color: var(--gold-accent);
+    outline: none;
+}
+
+.btn-auth-submit {
+    width: 100%;
+    background-color: var(--gold-accent);
+    color: var(--navy-primary);
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+}
+/* --- FAQ Container & Header --- */
+.faq-container {
+    background-color: var(--bg-cream); /* From your earlier theme */
+    padding: 80px 15%;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.faq-header h1 {
+    font-size: 42px;
+    color: var(--navy-primary);
+    margin-bottom: 10px;
+}
+
+.faq-header p {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* --- Search Bar --- */
+.search-wrapper {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 50px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+#faqSearch {
+    width: 100%;
+    padding: 15px 15px 15px 50px;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* --- Accordion Items --- */
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.faq-item {
+    background: white;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.faq-item summary {
+    padding: 20px 25px;
+    list-style: none;
+    font-weight: 600;
+    color: var(--navy-primary);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    transition: background 0.3s;
+}
+
+.faq-item summary:hover {
+    background: #f8f8f8;
+}
+
+.faq-answer {
+    padding: 0 25px 20px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.chevron {
+    font-size: 20px;
+    color: #999;
+}
+
+/* Hide default browser triangle */
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+/* --- Services Grid Layout --- */
+.services-page {
+    background-color: var(--bg-cream);
+    padding: 60px 10%;
+    min-height: 100vh;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* --- Service Card Styling --- */
+.service-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.card-icon-box {
+    background-color: var(--navy-primary);
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    color: var(--navy-primary);
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+/* --- Feature List --- */
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Pushes the button to the bottom */
+}
+
+.service-features li {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.service-features li::before {
+    content: "•";
+    color: var(--gold-accent);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* --- Card Button --- */
+.btn-card-action {
+    background-color: var(--gold-accent);
+    color: var(--navy-primary);
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-card-action:hover {
+    background-color: var(--gold-hover);
+}
+
+/* Responsive Grid for Mobile */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
